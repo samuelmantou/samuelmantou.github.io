@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Samuelmantou's Blog]]></title>
+  <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
+  <link href="http://samuelmantou.github.io/"/>
+  <updated>2014-03-20T22:30:28+08:00</updated>
+  <id>http://samuelmantou.github.io/</id>
+  <author>
+    <name><![CDATA[高超]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Zombie Ninjas Attack: A Survivor's Retrospective]]></title>
+    <link href="http://samuelmantou.github.io/blog/2014/03/20/zombie-ninjas-attack-a-survivors-retrospective/"/>
+    <updated>2014-03-20T22:22:34+08:00</updated>
+    <id>http://samuelmantou.github.io/blog/2014/03/20/zombie-ninjas-attack-a-survivors-retrospective</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
