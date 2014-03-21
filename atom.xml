@@ -4,7 +4,7 @@
   <title><![CDATA[Samuelmantou's Blog]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-21T09:28:35+08:00</updated>
+  <updated>2014-03-21T09:35:43+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Zombie Ninjas Attack: A Survivor's Retrospective]]></title>
+    <title type="html"><![CDATA[Hello My Github Blog]]></title>
     <link href="http://samuelmantou.github.io/blog/2014/03/20/zombie-ninjas-attack-a-survivors-retrospective/"/>
     <updated>2014-03-20T22:22:34+08:00</updated>
     <id>http://samuelmantou.github.io/blog/2014/03/20/zombie-ninjas-attack-a-survivors-retrospective</id>
-    <content type="html"><![CDATA[<p>大家好、</p>
+    <content type="html"><![CDATA[<p>这是我的第一篇博客。</p>
 ]]></content>
   </entry>
   
