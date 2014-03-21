@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-21T22:30:09+08:00</updated>
+  <updated>2014-03-21T22:59:06+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -23,6 +23,25 @@
 <p>最近主要是想要攻下《征服C指针》</p>
 
 <p><img src="http://samuelmantou.github.io/images/C_image.jpg" alt="image" /></p>
+
+<p>下面试试写一行代码看看,哈哈</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="n">AFHTTPRequestOperationManager</span> <span class="o">*</span><span class="n">manager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPRequestOperationManager</span> <span class="n">manager</span><span class="p">];</span>
+</span><span class='line'><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">parameters</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@&quot;foo&quot;</span><span class="o">:</span> <span class="s">@&quot;bar&quot;</span><span class="p">};</span>
+</span><span class='line'><span class="p">[</span><span class="n">manager</span> <span class="nl">POST:</span><span class="s">@&quot;http://example.com/resources.json&quot;</span> <span class="nl">parameters:</span><span class="n">parameters</span> <span class="nl">success:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;JSON: %@&quot;</span><span class="p">,</span> <span class="n">responseObject</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="nl">failure:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+</span><span class='line'><span class="p">}];</span>
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
