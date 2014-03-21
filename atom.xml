@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-21T22:59:06+08:00</updated>
+  <updated>2014-03-21T23:03:31+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -42,6 +42,10 @@
 </span><span class='line'><span class="p">}];</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>下面是一段引用</p>
+
+<blockquote><p>In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.</p></blockquote>
 ]]></content>
   </entry>
   
