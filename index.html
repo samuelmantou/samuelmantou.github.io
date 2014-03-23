@@ -9,7 +9,8 @@
   <meta name="author" content="高超">
 
   
-  <meta name="description" content="C的数据类型和模型 &mdash; 《征服C指针》 这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。 ">
+  <meta name="description" content="C的数据类型和模型 &mdash; 《征服C指针》 这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。 假设有下面这样的声明：
+int (*func_table[10])(int a);可以解释成:指向返回int的函数（参数为int a）的指针的数组（元素个数10） 图 3-1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,8 +97,21 @@
 
   <div class="entry-content"><h1>C的数据类型和模型 &mdash; 《征服C指针》</h1>
 
-<pre><code>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。
-</code></pre>
+<p>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。</p>
+
+<blockquote><p>假设有下面这样的声明：
+<code>int (*func_table[10])(int a);</code>可以解释成:指向返回int的函数（参数为int a）的指针的数组（元素个数10）</p></blockquote>
+
+<p><img src="http://samuelmantou.github.io/images/keyChainOfType.jpg" alt="image" /></p>
+
+<center>图 3-1 用图表现“类型”</center>
+
+
+<p>这种表示“类型链的表示”。</p>
+
+<p>姑且先<b>忽视结构体、共用体、typedef等类型，</b>概要地进行说明，链的最后面的元素是<b>基本类型,</b>这里可能是int或者double。</p>
+
+<p>此外，从倒数的第二个元素开始的元素都是<b>派生类型。</b>所谓“派生类型”，就是指从某些类型派生出来的类型。</p>
 </div>
   
   
