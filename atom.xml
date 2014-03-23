@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-21T23:14:19+08:00</updated>
+  <updated>2014-03-23T22:46:06+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Data Type and Model of C]]></title>
+    <link href="http://samuelmantou.github.io/blog/2014/03/23/data-type-and-model-of-c/"/>
+    <updated>2014-03-23T22:38:35+08:00</updated>
+    <id>http://samuelmantou.github.io/blog/2014/03/23/data-type-and-model-of-c</id>
+    <content type="html"><![CDATA[<h1>C的数据类型和模型 &mdash; 《征服C指针》</h1>
+
+<pre><code>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello My Github Blog]]></title>
