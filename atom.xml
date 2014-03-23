@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-23T23:40:40+08:00</updated>
+  <updated>2014-03-23T23:42:33+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -14,13 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Data Type and Model of C]]></title>
+    <title type="html"><![CDATA[C的数据类型和模型 -- 《征服C指针》]]></title>
     <link href="http://samuelmantou.github.io/blog/2014/03/23/data-type-and-model-of-c/"/>
     <updated>2014-03-23T22:38:35+08:00</updated>
     <id>http://samuelmantou.github.io/blog/2014/03/23/data-type-and-model-of-c</id>
-    <content type="html"><![CDATA[<h1>C的数据类型和模型 &mdash; 《征服C指针》</h1>
-
-<p>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。</p>
+    <content type="html"><![CDATA[<p>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。</p>
 
 <blockquote><p>假设有下面这样的声明：
 <code>int (*func_table[10])(int a);</code>可以解释成:指向返回int的函数（参数为int a）的指针的数组（元素个数10）</p></blockquote>
