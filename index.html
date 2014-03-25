@@ -187,9 +187,9 @@
 <span class='line-number'>44</span>
 <span class='line-number'>45</span>
 <span class='line-number'>46</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="err">\#</span><span class="n">define</span> <span class="n">SWAP</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">){</span><span class="kt">int</span> <span class="n">temp</span><span class="p">;</span> <span class="n">temp</span> <span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;}</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#define SWAP(a, b){int temp; temp =a; a = b; b = temp;}</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">void</span> <span class="n">quick_sort_sub</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">);</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">quick_sort_sub</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="kt">void</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data_size</span><span class="p">){</span>
 </span><span class='line'>  <span class="n">quick_sort_sub</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">data_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
