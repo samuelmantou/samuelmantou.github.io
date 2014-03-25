@@ -5,12 +5,56 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C的数据类型和模型 -- 《征服C指针》 - 高超的技术博客</title>
+  <title>递归调用 -- 《征服C指针》 - 高超的技术博客</title>
   <meta name="author" content="高超">
 
   
-  <meta name="description" content="这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。 假设有下面这样的声明：
-int (*func_table[10])(int a);可以解释成:指向返回int的函数（参数为int a）的指针的数组（元素个数10） 图 3-1 用图表现“类型” 这种表示“类型链的表示”。 &hellip;">
+  <meta name="description" content="下面是引用《征服C指针》的一段实例代码。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +113,7 @@ int (*func_table[10])(int a);可以解释成:指向返回int的函数（参数�
   
   <header>
     
-      <h1 class="entry-title">C的数据类型和模型 -- 《征服C指针》</h1>
+      <h1 class="entry-title">递归调用 -- 《征服C指针》</h1>
     
     
       <p class="meta">
@@ -92,21 +136,102 @@ int (*func_table[10])(int a);可以解释成:指向返回int的函数（参数�
   </header>
 
 
-<div class="entry-content"><p>这章没怎么看懂，所以打算写篇博客，可能有错误，但我会不停修正的。</p>
+<div class="entry-content"><p>下面是引用《征服C指针》的一段实例代码。</p>
 
-<blockquote><p>假设有下面这样的声明：
-<code>int (*func_table[10])(int a);</code>可以解释成:指向返回int的函数（参数为int a）的指针的数组（元素个数10）</p></blockquote>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="err">\#</span><span class="n">define</span> <span class="n">SWAP</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">){</span><span class="kt">int</span> <span class="n">temp</span><span class="p">;</span> <span class="n">temp</span> <span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">quick_sort_sub</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">data_size</span><span class="p">){</span>
+</span><span class='line'>  <span class="n">quick_sort_sub</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">data_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">quick_sort_sub</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">left_index</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">right_index</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">left_index</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">right_index</span><span class="p">);</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">];</span>
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="n">left_index</span> <span class="o">&lt;=</span> <span class="n">right_index</span><span class="p">){</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(;</span> <span class="n">data</span><span class="p">[</span><span class="n">left_index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">;</span> <span class="n">left_index</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>          
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(;</span> <span class="n">data</span><span class="p">[</span><span class="n">right_index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">;</span> <span class="n">right_index</span><span class="o">--</span><span class="p">){</span>
+</span><span class='line'>          
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="n">left_index</span> <span class="o">&lt;=</span> <span class="n">right_index</span><span class="p">){</span>
+</span><span class='line'>          <span class="n">SWAP</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">left_index</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">right_index</span><span class="p">]);</span>
+</span><span class='line'>          <span class="n">left_index</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">right_index</span><span class="o">--</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="n">right_index</span> <span class="o">&gt;</span> <span class="n">left</span><span class="p">){</span>
+</span><span class='line'>      <span class="n">quick_sort_sub</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right_index</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="n">left_index</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">){</span>
+</span><span class='line'>      <span class="n">quick_sort_sub</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">left_index</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+</span><span class='line'>  <span class="n">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>      <span class="c1">//printf(&quot;%d\n&quot;, data[i]);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p><img src="http://samuelmantou.github.io/images/keyChainOfType.jpg" alt="image" /></p>
-
-<center>图 3-1 用图表现“类型”</center>
-
-
-<p>这种表示“类型链的表示”。</p>
-
-<p>姑且先<b>忽视结构体、共用体、typedef等类型，</b>概要地进行说明，链的最后面的元素是<b>基本类型,</b>这里可能是int或者double。</p>
-
-<p>此外，从倒数的第二个元素开始的元素都是<b>派生类型。</b>所谓“派生类型”，就是指从某些类型派生出来的类型。</p>
 </div>
 
 
@@ -166,7 +291,7 @@ int (*func_table[10])(int a);可以解释成:指向返回int的函数（参数�
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/23/data-type-and-model-of-c/">C的数据类型和模型 -- 《征服C指针》</a>
+        <a href="/blog/2014/03/23/data-type-and-model-of-c/">递归调用 -- 《征服C指针》</a>
       </li>
     
       <li class="post">
