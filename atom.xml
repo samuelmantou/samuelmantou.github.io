@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-04-03T13:07:16+08:00</updated>
+  <updated>2014-04-03T13:13:49+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -19,7 +19,9 @@
     <updated>2014-04-03T13:02:04+08:00</updated>
     <id>http://samuelmantou.github.io/blog/2014/04/03/performselector-case-weak</id>
     <content type="html"><![CDATA[<p>编程的用消息转发，发现如下错误
-<img src="http://samuelmantou.github.io/images/performselector-case-weak/example_error.png" alt="image" /></p>
+<img src="http://samuelmantou.github.io/images/performselector-case-weak/example_error.png" alt="image" />
+中文意思是由于Selector是未知的 可能在使用PerformSelector时会导致内存泄露。
+这里是stackoverflow.com上的讨论<a href="http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown?answertab=votes#tab-top">http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown</a></p>
 ]]></content>
   </entry>
   
