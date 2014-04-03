@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-03-25T23:03:49+08:00</updated>
+  <updated>2014-04-03T13:05:41+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[performSelector Case Weak 引发的思考]]></title>
+    <link href="http://samuelmantou.github.io/blog/2014/04/03/performselector-case-weak/"/>
+    <updated>2014-04-03T13:02:04+08:00</updated>
+    <id>http://samuelmantou.github.io/blog/2014/04/03/performselector-case-weak</id>
+    <content type="html"><![CDATA[<p>编程的用消息转发，发现如下错误
+<img src="http://samuelmantou.github.io/performselector-case-weak/example_error.png" alt="image" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[递归调用 -- 《征服C指针》]]></title>
