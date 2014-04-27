@@ -140,10 +140,8 @@
 
 <p>这看起来想很容易，IMP是当前方法的。每一个方法都有自己的参数和我们都很少用_cmd参数和下面这些代码来调用：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="p">[(</span><span class="n">NSObject</span> <span class="o">*</span><span class="p">)[</span><span class="n">self</span> <span class="n">class</span><span class="p">]</span> <span class="nl">instanceMethodForSelector:</span><span class="n">_cmd</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>[(NSObject *)[self class] instanceMethodForSelector:_cmd];
+</code></pre>
 </div>
   
   
