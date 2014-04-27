@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-04-03T13:13:49+08:00</updated>
+  <updated>2014-04-27T11:08:47+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[译 IMP of the Current Method]]></title>
+    <link href="http://samuelmantou.github.io/blog/2014/04/27/imp-of-the-current-method/"/>
+    <updated>2014-04-27T11:06:42+08:00</updated>
+    <id>http://samuelmantou.github.io/blog/2014/04/27/imp-of-the-current-method</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[performSelector Case Weak 引发的思考]]></title>
