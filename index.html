@@ -114,12 +114,34 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'>    <span class="k">struct</span> <span class="n">objc_method</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>      <span class="n">SEL</span> <span class="n">method_name</span><span class="p">;</span>
-</span><span class='line'>      <span class="kt">char</span> <span class="o">*</span> <span class="n">method_types</span><span class="p">;</span>
-</span><span class='line'>      <span class="n">IMP</span> <span class="n">method_imp</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span>    
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">struct</span> <span class="n">objc_method</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">SEL</span> <span class="n">method_name</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">char</span> <span class="o">*</span> <span class="n">method_types</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">IMP</span> <span class="n">method_imp</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="k">typedef</span> <span class="n">objc_method</span> <span class="n">Method</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以该方法都包含了3个属性：</p>
+
+<ul>
+<li>method_name 描述该方法的签名；他的值被所有具有相同的方法名和参数名的方法所共享。</li>
+<li>method_types 描述该方法的方法参数的类型。</li>
+<li>method_imp是一个方法的指针，i.e.当这个方法被选中调用，那么他的地址指向的代码将会被调用。</li>
+</ul>
+
+
+<p>我们要挑战寻找这种所谓的&#8221;method_imp&#8221;。方法的IMP是他代码的一个地址，也被称为他的函数的指针。</p>
+
+<h1>那么问题到底在哪呢？</h1>
+
+<p>这看起来想很容易，IMP是当前方法的。每一个方法都有自己的参数和我们都很少用_cmd参数和下面这些代码来调用：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="p">[(</span><span class="n">NSObject</span> <span class="o">*</span><span class="p">)[</span><span class="n">self</span> <span class="n">class</span><span class="p">]</span> <span class="nl">instanceMethodForSelector:</span><span class="n">_cmd</span><span class="p">];</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
