@@ -4,7 +4,7 @@
   <title><![CDATA[高超的技术博客]]></title>
   <link href="http://samuelmantou.github.io/atom.xml" rel="self"/>
   <link href="http://samuelmantou.github.io/"/>
-  <updated>2014-04-27T12:29:48+08:00</updated>
+  <updated>2014-04-27T12:42:06+08:00</updated>
   <id>http://samuelmantou.github.io/</id>
   <author>
     <name><![CDATA[高超]]></name>
@@ -62,7 +62,9 @@
 
 <h1>那么问题到底在哪呢？</h1>
 
-<p>这看起来想很容易，IMP是当前方法的。每一个方法都有自己的参数和我们都很少用_cmd参数和下面这些代码来调用：<code>[(NSObject *)[self class] instanceMethodForSelector:_cmd];</code></p>
+<p>这看起来像，IMP是当前方法应该会很容易。每一个方法都有自己的参数和一个很用的很少的_cmd参数和这种我们可以调用的：<code>[(NSObject *)[self class] instanceMethodForSelector:_cmd];</code></p>
+
+<p>除了这，永远只能返回默认的IMP。</p>
 ]]></content>
   </entry>
   
